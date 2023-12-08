@@ -749,12 +749,12 @@ mud_keyx(struct mud *mud, unsigned char *public, int aes)
 
     if (mud->crypto.next.aes) {
         crypto_aead_aes256gcm_beforenm((crypto_aead_aes256gcm_state *)
-                                           mud->crypto.next.encrypt.state,
-                                       mud->crypto.next.encrypt.key);
+                                           &mud->crypto.next.encrypt.state,
+                                       &mud->crypto.next.encrypt.key);
 
         crypto_aead_aes256gcm_beforenm((crypto_aead_aes256gcm_state *)
-                                           mud->crypto.next.decrypt.state,
-                                       mud->crypto.next.decrypt.key);
+                                           &mud->crypto.next.decrypt.state,
+                                       &mud->crypto.next.decrypt.key);
     }
 }
 
